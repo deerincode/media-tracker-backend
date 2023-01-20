@@ -31,7 +31,7 @@ app.use(cors())
 
 // Routes
 app.use('/movies', moviesController)
-app.use('/videogames', moviesController)
+app.use('/videogames', videogamesController)
 
 // Seeding the db
 app.get('/seed', async (req, res) => {
