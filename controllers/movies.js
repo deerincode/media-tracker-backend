@@ -4,7 +4,7 @@ const router = express.Router()
 
 
 // Index
-router.get('/movies',(req,res)=>{
+router.get('/',(req,res)=>{
     Movies.find({}, (err, foundMovies)=>{
         res.json(foundMovies)
     })
@@ -12,13 +12,13 @@ router.get('/movies',(req,res)=>{
 //New - Handled by React
 
 // Delete
-router.delete('/movies/:id', (req, res)=>{
+router.delete('/:id', (req, res)=>{
     Movies.findByIdAndRemove(req.params.id, (err, deletedMovie)=>{
         res.json(deletedMovie)
     })
 })
 // Update
-router.put('/movies/:id', (req, res)=>{
+router.put('/:id', (req, res)=>{
     Movies.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedMovie)=>{
         res.json(updatedMovie);
     })
@@ -34,7 +34,7 @@ router.post('/', (req, res)=>{
 //Edit - handled by React
 
 // Show
-router.get('/movies/:id', (req, res)=>{
+router.get('/:id', (req, res)=>{
     Movies.findById(req.params.id, (err, foundMovie)=>{
         res.json(foundMovie)
     })

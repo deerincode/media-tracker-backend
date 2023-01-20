@@ -3,7 +3,7 @@ const Videogames = require('../models/videogames')
 const router = express.Router()
 
 // Index
-router.get('/videogames',(req,res)=>{
+router.get('/',(req,res)=>{
     Videogames.find({}, (err, foundVideogames)=>{
         res.json(foundVideogames)
     })
@@ -11,13 +11,13 @@ router.get('/videogames',(req,res)=>{
 //New - Handled by React
 
 // Delete
-router.delete('/videogames/:id', (req, res)=>{
+router.delete('/:id', (req, res)=>{
     Videogames.findByIdAndRemove(req.params.id, (err, deletedVideogame)=>{
         res.json(deletedVideogame)
     })
 })
 // Update
-router.put('/videogames/:id', (req, res)=>{
+router.put('/:id', (req, res)=>{
     Videogames.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedVideogame)=>{
         res.json(updatedVideogame);
     })
@@ -33,7 +33,7 @@ router.post('/', (req, res)=>{
 //Edit - handled by React
 
 // Show
-router.get('/videogames/:id', (req, res)=>{
+router.get('/:id', (req, res)=>{
     Videogames.findById(req.params.id, (err, foundVideogame)=>{
         res.json(foundVideogame)
     })
